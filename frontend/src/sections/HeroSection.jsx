@@ -51,7 +51,7 @@ export default function HeroSection() {
             className="max-w-4xl"
           >
             <p className="w-full whitespace-nowrap text-center text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-[#16B86A] leading-tight">
-  ONE EVENT MULTIPLE COLLEGES ONE CLEARER DECISION
+  ONE EVENT . MULTIPLE COLLEGES . ONE CLEAR DECISION
 </p>
           </motion.div>
 
