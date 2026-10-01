@@ -1,236 +1,168 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown, GraduationCap, Users, Sparkles } from 'lucide-react';
+import { Calendar, MapPin, ArrowRight, CheckCircle2, Sparkles, Building2, Users, HelpCircle, Compass } from 'lucide-react';
 
 export default function HeroSection() {
-  const handleExplore = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('concept360');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0B2344]"
-    >
-      {/* Subtle grid background */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)',
-          backgroundSize: '60px 60px',
-        }}
-      />
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B2344] overflow-hidden text-white">
+      {/* Background Decorative Gradients & Grid Pattern */}
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#16B86A_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-[#16B86A]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#0E7D46]/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Decorative 360° ring graphic — top right */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none">
-        <svg viewBox="0 0 400 400" className="w-full h-full opacity-[0.12]">
-          <circle cx="200" cy="200" r="150" stroke="#16B86A" strokeWidth="2" fill="none" strokeDasharray="12 8" />
-          <circle cx="200" cy="200" r="100" stroke="#16B86A" strokeWidth="1.5" fill="none" strokeDasharray="4 12" />
-          <circle cx="200" cy="200" r="50" stroke="#ffffff" strokeWidth="1" fill="none" />
-        </svg>
-      </div>
-
-      {/* Decorative circle — bottom left */}
-      <div className="absolute bottom-0 left-0 w-80 h-80 translate-y-1/3 -translate-x-1/4 pointer-events-none">
-        <svg viewBox="0 0 300 300" className="w-full h-full opacity-[0.06]">
-          <circle cx="150" cy="150" r="120" stroke="#16B86A" strokeWidth="2" fill="none" />
-          <circle cx="150" cy="150" r="80" stroke="#16B86A" strokeWidth="1" fill="none" strokeDasharray="6 8" />
-        </svg>
-      </div>
-
-      {/* Green accent blob */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-[#16B86A]/5 blur-[120px] pointer-events-none" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-          {/* Left: Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="space-y-8"
-          >
-            {/* Brand badge */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Copy & CTAs */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            {/* Event Info Pill */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#16B86A]/30 bg-[#16B86A]/10 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 backdrop-blur-md"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#16B86A] animate-pulse" />
-              <span className="text-[#16B86A] font-semibold text-xs tracking-widest uppercase">
-                DENSE360 — The Right Choice
+              <span className="w-2.5 h-2.5 rounded-full bg-[#16B86A] animate-pulse" />
+              <span className="text-xs font-bold tracking-wider text-slate-200 uppercase flex items-center gap-2">
+                <Calendar className="w-3.5 h-3.5 text-[#16B86A]" /> NOVEMBER 7, 2026
+                <span className="text-white/40">•</span>
+                <MapPin className="w-3.5 h-3.5 text-[#16B86A]" /> HYDERABAD
               </span>
             </motion.div>
 
-            {/* Main heading */}
+            {/* Brand Title */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 className="font-display text-[4.5rem] sm:text-[5.5rem] lg:text-[6rem] font-black leading-[0.9] text-white tracking-tight">
-                THE
-                <br />
-                <span className="text-[#16B86A]">RIGHT</span>
-                <br />
-                CHOICE.
+              <span className="block text-xs uppercase font-extrabold text-[#16B86A] tracking-[0.2em] mb-2">
+                Class 10 Education Discovery Event
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-black tracking-tight leading-none text-white">
+                DENSE<span className="text-[#16B86A]">360</span>
               </h1>
             </motion.div>
 
-            {/* Tagline */}
+            {/* Positioning Tagline */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-2"
             >
-              <p className="text-slate-300 text-xl sm:text-2xl font-medium tracking-wide">
-                Know Your Options. Choose Your Path.
+              <p className="text-2xl sm:text-3xl font-display font-extrabold text-[#16B86A] leading-tight">
+                ONE EVENT. MULTIPLE COLLEGES. ONE CLEARER DECISION.
               </p>
             </motion.div>
 
-            {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
+            {/* Supporting Copy */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.45 }}
-              className="space-y-3"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed"
             >
-              <p className="text-slate-400 text-base leading-relaxed max-w-lg">
-                An education experience for students, parents and educators.
-              </p>
-              <p className="text-slate-300 text-sm tracking-wide font-medium">
-                Connecting Schools. Engaging Students. Creating Opportunities.
-              </p>
-            </motion.div>
+              After Class 10, choosing the right Intermediate college and stream can feel confusing. Instead of visiting college after college, explore multiple options at DENSE360 — all in one place, on one day.
+            </motion.p>
 
-            {/* CTA Buttons */}
+            {/* Action Bar & Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex flex-col sm:flex-row gap-4"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
             >
               <Link
                 to="/register"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#16B86A] hover:bg-[#129B58] text-white font-bold text-base shadow-xl shadow-green-900/30 hover:shadow-green-900/50 transition-all duration-200 transform hover:-translate-y-1"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#16B86A] hover:bg-[#129B58] text-white font-extrabold text-base shadow-xl shadow-green-900/30 transition-all duration-300 transform hover:-translate-y-1"
               >
                 <span>FILL THE DETAILS</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <button
-                onClick={handleExplore}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border border-white/20 text-white font-semibold text-base hover:border-[#16B86A]/50 hover:bg-white/5 transition-all duration-200"
+              
+              <a
+                href="#what-is-dense"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/15 text-slate-200 font-bold text-sm transition-all"
               >
-                EXPLORE DENSE360
-              </button>
+                <span>EXPLORE DENSE360</span>
+              </a>
             </motion.div>
 
-            {/* Stats row — only show when real data exists, for now show programme pillars */}
-            <motion.div
+            {/* Hero Supporting Line */}
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="flex flex-wrap gap-6 pt-4"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-xs sm:text-sm text-slate-400 font-medium pt-2 italic"
             >
-              {['LEARN', 'PARTICIPATE', 'CREATE', 'COLLABORATE', 'DISCOVER'].map((word) => (
-                <div key={word} className="text-xs font-bold tracking-widest text-[#16B86A]/70 uppercase">
-                  {word}
+              Meet colleges. Explore streams. Ask questions. Compare options. Make your next decision with clarity.
+            </motion.p>
+          </div>
+
+          {/* Right Column: Hero Visual Event Card */}
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative rounded-3xl bg-gradient-to-b from-white/10 to-white/5 p-6 sm:p-8 border border-white/15 backdrop-blur-xl shadow-2xl"
+            >
+              {/* Event Badge Header */}
+              <div className="flex items-center justify-between pb-6 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-[#16B86A] flex items-center justify-center text-white shadow-lg">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-base">Intermediate College Stalls</h3>
+                    <p className="text-slate-300 text-xs">Direct interactions under one roof</p>
+                  </div>
                 </div>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          {/* Right: 360° Visual Element */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="hidden lg:flex items-center justify-center"
-          >
-            <div className="relative w-[420px] h-[420px]">
-              {/* Central concept circle */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                {/* Rotating outer ring */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                  className="absolute w-full h-full"
-                >
-                  <svg viewBox="0 0 420 420" className="w-full h-full">
-                    <circle cx="210" cy="210" r="200" stroke="#16B86A" strokeWidth="1.5" fill="none" strokeDasharray="8 16" opacity="0.3" />
-                    <circle cx="210" cy="210" r="170" stroke="#ffffff" strokeWidth="1" fill="none" strokeDasharray="4 20" opacity="0.1" />
-                  </svg>
-                </motion.div>
-
-                {/* Middle ring */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                  className="absolute w-[280px] h-[280px]"
-                >
-                  <svg viewBox="0 0 280 280" className="w-full h-full">
-                    <circle cx="140" cy="140" r="130" stroke="#16B86A" strokeWidth="2" fill="none" strokeDasharray="18 10" opacity="0.4" />
-                  </svg>
-                </motion.div>
-
-                {/* Center badge */}
-                <div className="relative z-10 w-36 h-36 rounded-full bg-gradient-to-br from-[#16B86A] to-[#0E7D46] flex flex-col items-center justify-center shadow-2xl shadow-green-800/40">
-                  <span className="text-white font-display font-black text-4xl leading-none">360°</span>
-                  <span className="text-green-100 text-[10px] font-bold tracking-widest mt-1">DENSE</span>
-                </div>
-
-                {/* Orbital label nodes */}
-                {[
-                  { label: 'Schools', angle: -90, icon: '🏫' },
-                  { label: 'Students', angle: 0, icon: '👤' },
-                  { label: 'Activities', angle: 90, icon: '✦' },
-                  { label: 'Opportunities', angle: 180, icon: '🎯' },
-                ].map(({ label, angle, icon }) => {
-                  const rad = (angle - 90) * (Math.PI / 180);
-                  const r = 200;
-                  const x = 50 + (r / 420) * 100 * Math.cos(rad);
-                  const y = 50 + (r / 420) * 100 * Math.sin(rad);
-                  return (
-                    <motion.div
-                      key={label}
-                      initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.8 + angle / 1000 }}
-                      className="absolute flex flex-col items-center gap-1"
-                      style={{
-                        left: `${x}%`,
-                        top: `${y}%`,
-                        transform: 'translate(-50%, -50%)',
-                      }}
-                    >
-                      <div className="w-14 h-14 rounded-2xl bg-[#0B2344] border-2 border-[#16B86A]/40 flex items-center justify-center shadow-lg shadow-black/30">
-                        <span className="text-lg">{icon}</span>
-                      </div>
-                      <span className="text-white/80 text-[10px] font-bold tracking-wider uppercase">{label}</span>
-                    </motion.div>
-                  );
-                })}
+                <span className="px-3 py-1 rounded-full bg-[#16B86A]/20 text-[#16B86A] text-xs font-bold border border-[#16B86A]/30">
+                  HYDERABAD
+                </span>
               </div>
-            </div>
-          </motion.div>
-        </div>
 
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        >
-          <span className="text-slate-500 text-xs tracking-widest uppercase font-medium">Scroll to explore</span>
-          <ChevronDown className="w-5 h-5 text-[#16B86A] animate-bounce" />
-        </motion.div>
+              {/* Event Interaction Visual Highlights */}
+              <div className="py-6 space-y-4">
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                  <Users className="w-5 h-5 text-[#16B86A] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-white font-bold text-sm">Students & Parents</h4>
+                    <p className="text-slate-300 text-xs mt-0.5">Meet college representatives & principals directly</p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                  <Compass className="w-5 h-5 text-[#16B86A] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-white font-bold text-sm">Streams & Pathways</h4>
+                    <p className="text-slate-300 text-xs mt-0.5">Explore MPC, BiPC, MEC, CEC and special combinations</p>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                  <HelpCircle className="w-5 h-5 text-[#16B86A] shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-white font-bold text-sm">Ask & Compare</h4>
+                    <p className="text-slate-300 text-xs mt-0.5">Clear doubt about academics, facilities & admissions</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Event Concept Footnote */}
+              <div className="pt-4 border-t border-white/10 text-center">
+                <span className="text-xs text-[#16B86A] font-bold tracking-wider uppercase">
+                  ONE VENUE • ONE DAY • MULTIPLE COLLEGES
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

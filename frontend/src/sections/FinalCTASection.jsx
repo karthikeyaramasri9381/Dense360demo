@@ -1,71 +1,112 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, HelpCircle, Building2, CheckCircle2, Sparkles } from 'lucide-react';
 
 export default function FinalCTASection() {
-  return (
-    <section id="cta" className="py-28 bg-[#0B2344] relative overflow-hidden">
-      {/* Decorative rings */}
-      <div className="absolute top-0 right-0 w-96 h-96 -translate-y-1/3 translate-x-1/3 pointer-events-none">
-        <svg viewBox="0 0 400 400" className="w-full h-full opacity-[0.07]">
-          <circle cx="200" cy="200" r="180" stroke="#16B86A" strokeWidth="2" fill="none" strokeDasharray="12 8" />
-          <circle cx="200" cy="200" r="120" stroke="#16B86A" strokeWidth="1.5" fill="none" />
-        </svg>
-      </div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 translate-y-1/3 -translate-x-1/3 pointer-events-none">
-        <svg viewBox="0 0 300 300" className="w-full h-full opacity-[0.05]">
-          <circle cx="150" cy="150" r="130" stroke="#ffffff" strokeWidth="1.5" fill="none" />
-        </svg>
-      </div>
+  const studentQuestions = ["Which college?", "Which stream?", "What comes next?"];
+  const collegePoints = [
+    "Meet students.",
+    "Meet parents.",
+    "Present your college.",
+    "Explain your streams.",
+    "Answer questions.",
+    "Create admission conversations."
+  ];
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  return (
+    <section className="py-20 bg-[#F5F2EA] text-[#0B2344]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        
+        {/* Section 27: Final Student CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="space-y-8"
+          className="rounded-3xl bg-[#0B2344] text-white p-8 sm:p-14 border border-white/10 shadow-2xl relative overflow-hidden"
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#16B86A]/30 bg-[#16B86A]/10">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#16B86A] animate-pulse" />
-            <span className="text-[#16B86A] text-xs font-bold tracking-widest uppercase">Ready to begin?</span>
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <span className="px-4 py-1.5 rounded-full bg-[#16B86A]/20 text-[#16B86A] text-xs font-black tracking-widest uppercase border border-[#16B86A]/30">
+              For Students & Parents
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-black tracking-tight leading-tight">
+              YOUR NEXT STEP STARTS WITH A QUESTION.
+            </h2>
+
+            {/* Questions Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              {studentQuestions.map((q, idx) => (
+                <span key={idx} className="px-5 py-2.5 rounded-2xl bg-white/10 border border-white/15 text-sm sm:text-base font-bold text-[#16B86A]">
+                  {q}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              You don't need to find every answer alone. Come to DENSE360. Meet multiple colleges. Explore your options. Ask your questions. Understand your choices.
+            </p>
+
+            <div className="space-y-4 pt-2">
+              <h3 className="text-2xl sm:text-3xl font-display font-black text-[#16B86A]">
+                MAKE YOUR NEXT DECISION WITH CLARITY.
+              </h3>
+
+              <div className="pt-2">
+                <Link
+                  to="/register"
+                  className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-[#16B86A] hover:bg-[#129B58] text-white font-black text-base shadow-xl shadow-green-900/40 transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <span>FILL THE DETAILS</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+
           </div>
-
-          {/* Heading */}
-          <h2 className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95]">
-            Ready to be part<br />of{' '}
-            <span className="text-[#16B86A]">DENSE360?</span>
-          </h2>
-
-          {/* Subtext */}
-          <div className="space-y-2 text-slate-300 text-lg">
-            <p>Know your options.</p>
-            <p>Choose your path.</p>
-            <p>Create meaningful student experiences.</p>
-          </div>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <Link
-              to="/register"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-[#16B86A] hover:bg-[#129B58] text-white font-black text-lg shadow-2xl shadow-green-900/40 hover:shadow-green-900/60 transition-all duration-200 transform hover:-translate-y-1"
-            >
-              FILL THE DETAILS
-              <ArrowRight className="w-6 h-6" />
-            </Link>
-          </motion.div>
-
-          <p className="text-slate-500 text-sm pt-4">
-            DENSE360 — The Right Choice
-          </p>
         </motion.div>
+
+        {/* Section 28: Final College CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-3xl bg-white p-8 sm:p-12 border border-slate-200 shadow-xl"
+        >
+          <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 space-y-4">
+              <span className="px-3.5 py-1 rounded-full bg-[#0B2344]/10 text-[#0B2344] text-xs font-black tracking-widest uppercase">
+                For Participating Institutions
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl font-display font-black text-[#0B2344] leading-tight">
+                PUT YOUR COLLEGE IN FRONT OF STUDENTS WHO ARE READY TO EXPLORE THEIR OPTIONS.
+              </h2>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                {collegePoints.map((pt, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs font-bold text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-[#16B86A] shrink-0" />
+                    {pt}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col items-center justify-center">
+              <Link
+                to="/register"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#0B2344] hover:bg-[#061325] text-white font-bold text-sm shadow-md transition-all text-center"
+              >
+                <span>PARTNER WITH DENSE360</span>
+                <Building2 className="w-4 h-4 text-[#16B86A]" />
+              </Link>
+            </div>
+
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
