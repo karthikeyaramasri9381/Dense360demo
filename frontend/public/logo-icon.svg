@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="20" fill="#0B2344"/>
+  <!-- Circular 360 ring -->
+  <circle cx="50" cy="50" r="32" stroke="#16B86A" stroke-width="6" stroke-linecap="round" stroke-dasharray="140 40"/>
+  <!-- Center letter D / 360 -->
+  <path d="M40 32H52C60 32 66 38 66 50C66 62 60 68 52 68H40V32Z" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="50" cy="50" r="4" fill="#16B86A"/>
+</svg>
