@@ -92,24 +92,29 @@ DB_PORT = os.getenv('DATABASE_PORT', '3306')
 try:
     import pymysql
     pymysql.install_as_MySQLdb()
+    from django.db.backends.base.base import BaseDatabaseWrapper
+    BaseDatabaseWrapper.check_database_version_supported = lambda self: None
 except ImportError:
     pass
 
-# Try testing MySQL connection if not explicitly USE_SQLITE
+# Try testing/creating MySQL connection if not explicitly USE_SQLITE
 is_mysql_ready = False
-if not USE_SQLITE and DB_PASSWORD:
+if not USE_SQLITE and (DB_PASSWORD or DB_USER == 'root'):
     try:
         import pymysql
-        test_conn = pymysql.connect(
+        conn = pymysql.connect(
             host=DB_HOST,
             user=DB_USER,
             password=DB_PASSWORD,
             port=int(DB_PORT),
-            connect_timeout=2
+            connect_timeout=3
         )
-        test_conn.close()
+        with conn.cursor() as cur:
+            cur.execute(f"CREATE DATABASE IF NOT EXISTS `{DB_NAME}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;")
+        conn.close()
         is_mysql_ready = True
-    except Exception:
+    except Exception as e:
+        print(f"MySQL Connection info: {e}")
         is_mysql_ready = False
 
 if is_mysql_ready:
