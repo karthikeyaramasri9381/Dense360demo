@@ -50,9 +50,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl"
           >
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-[#16B86A] leading-tight">
-              ONE EVENT. MULTIPLE COLLEGES. ONE CLEARER DECISION.
-            </p>
+            <p className="w-full whitespace-nowrap text-center text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-[#16B86A] leading-tight">
+  ONE EVENT MULTIPLE COLLEGES ONE CLEARER DECISION
+</p>
           </motion.div>
 
           {/* Supporting Copy */}
